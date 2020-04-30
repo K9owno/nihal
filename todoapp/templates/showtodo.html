@@ -1,0 +1,14 @@
+{% extends 'todo.html' %}
+
+{% block content %}
+<div class="ShowTodo">
+    {% for todo in todos %}
+
+    <div class="Todo">
+        <h3>{{todo.text}}</h3>
+    </div>
+
+    {%endfor%}
+</div>
+
+{% endblock %}

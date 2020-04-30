@@ -1,0 +1,37 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TODO APP</title>
+     <link rel="stylesheet" href="{% static 'index.css'  %}">
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="TodoApp">
+        <h2>This is the Todo App</h2>
+        <div class="Login">
+
+            {% if user.is_authenticated %}
+            <form method="POST" action='/Logout/'>
+               {% csrf_token %}
+                <button type="submit">Log Out</button>
+            </form>
+            {%else%}
+            <button><a href="/Signup/">Sign Up</a></button>
+            <button><a href="/Login/">Log In</a></button>
+            {%endif%}
+
+        </div>
+        <div class="wrapper">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <br>
+    </div>
+</body>
+</html>
